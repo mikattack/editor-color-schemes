@@ -1,0 +1,7 @@
+
+# Files
+*.sublime-project
+*.sublime-workspace
+
+# Diretories
+/soda-reloaded

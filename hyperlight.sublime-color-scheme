@@ -1,0 +1,373 @@
+{
+    "name":   "Hyperlight",
+    "author": "Alex Mikitik",
+    "uuid":   "01G9634E6VEHF8SF7YZ5XHNAQA",
+    "colorSpaceName": "sRGB",
+    "variables":
+    {
+        "border":                       "#403e41",
+        "blue":                         "#78dce8",
+        "gray":                         "#5b595c",
+        "green":                        "#a9dc76",
+        "orange":                       "#ffd866",
+        "red":                          "#ff6188",
+        "pale-white":                   "#efefec",
+        "purple":                       "#ae81ff"
+    },
+    "globals":
+    {
+        "background":                   "#272422",
+        "foreground":                   "var(pale-white)",
+        "invisibles":                   "var(gray)",
+
+
+        "caret":                        "var(pale-white)",
+        "block_caret":                  "#939293",
+        
+        "guide":                        "var(border)",
+        "stackGuide":                   "var(border)",
+        "activeGuide":                  "var(gray)",
+        
+        "selection":                    "#afa86633",
+        "selection_border":             "var(border)",
+        "selection_border_width":       "1",
+        "selection_corner_style":       "round",
+        "selection_corner_radius":      "2",
+        
+        "line_highlight":               "#efefec14",
+        "bracket_contents_options":     "underline",
+        "tags_options":                 "stippled_underline",
+        
+        "gutter":                       "#2d2a2e",
+        "gutter_foreground":            "#8b898c",
+        "gutter_foreground_highlight":  "var(orange)",
+
+        
+        "shadow":                       "#00000000",
+        "shadow_width":                 "0",
+        
+        "highlight":                    "yellow",
+        "find_highlight":               "var(orange)",
+        "find_highlight_foreground":    "#2d2a2e",
+        
+        "misspelling":                  "var(red)",
+        "fold_marker":                  "var(orange)",
+        "accent":                       "var(orange)",
+        
+        "line_diff_width":              "2",
+        "line_diff_added":              "var(green)",
+        "line_diff_modified":           "var(orange)",
+        "line_diff_deleted":            "var(red)",
+        
+        // "Cooler" color overrides. These makes colors "pop" less.
+        "background":                   "#272822",
+        "foreground":                   "#f8f8f2",
+        "gutter":                       "#272822",
+
+        "popup_css": "html {--background: #2d2a2e;--foreground: var(pale-white);--redish: var(red);--orangish: #fc9867;--yellowish: var(orange);--greenish: var(green);--bluish: var(blue);--purplish: #ab9df2;--pinkish: var(red); background-color: var(border);color: var(pale-white);} a {color: var(--yellowish);}"
+    },
+    "rules":
+    [
+        // ==| Text |========================================================
+
+        {
+            "name":       "text",
+            "scope":      "text",
+            "foreground": "var(pale-white)"
+        },
+        {
+            "name":       "source",
+            "scope":      "source",
+            "foreground": "var(pale-white)"
+        },
+        {
+            "name":       "String",
+            "scope":      "string",
+            "foreground": "var(orange)"
+        },
+        {
+            "name":       "String escapes",
+            "scope":      "constant.character.escape",
+            "foreground": "var(purple)"
+        },
+        {
+            "name":       "String substitution",
+            "scope":      "constant.other.placeholder",
+            "foreground": "var(purple)"
+        },
+        {
+            "name":       "Invalid",
+            "scope":      "invalid",
+            "foreground": "#fff",
+            "background": "#f92672bb"
+        },
+        {
+            "name":       "Search result line numbers",
+            "scope":      "constant.numeric.line-number.find-in-files",
+            "foreground": "var(gray)"
+        },
+        {
+            "name":       "Search result matched line numbers",
+            "scope":      "constant.numeric.line-number.match.find-in-files",
+            "foreground": "var(orange)"
+        },
+
+        // ==| JSON |========================================================
+
+        {
+            "name":       "JSON keys",
+            "scope":      "source.json meta.mapping.key string",
+            "foreground": "#ffc0c0dd"
+        },
+        {
+            "name":       "Library type property, JSON keys",
+            "scope":      "support.type.property-name",
+            "font_style": "normal",
+            "foreground": "var(pale-white)"
+        },
+
+        // ==| Comments |====================================================
+
+        {
+            "name":       "Comments and overrides inside comments",
+            "scope":      "comment, comment keyword, comment markup.underline.link, comment string, comment punctuation.definition, comment punctuation, comment text",
+            "foreground": "#00ff00dd"
+        },
+        {
+            "name":       "Comment start / end",
+            "scope":      "punctuation.definition.comment",
+            "foreground": "#00ff0066"
+        },
+        {
+            "name":       "Docstring",
+            "scope":      "string.quoted.docstring, string.quoted.docstring punctuation.definition",
+            "foreground": "#727072"
+        },
+
+        // ==| Constants |===================================================
+
+        // (includes user and language constants)
+
+        {
+            "name":       "Constant",
+            "scope":      "constant.language",
+            "foreground": "var(purple)"
+        },
+        {
+            "name":       "Library constant",
+            "scope":      "support.constant",
+            "foreground": "var(blue)"
+        },
+        {
+            "name":       "Number",
+            "scope":      "constant.numeric",
+            "foreground": "var(purple)"
+        },
+        {
+            "name":       "Immutable variables, often via a const modifier (may not be consistent across languages).",
+            "scope":      "variable.other.constant",
+            "foreground": "#bbadf2"
+        },
+        {
+            "name":       "Reserved variable names: 'arguments'",
+            "scope":      "variable.language.arguments",
+            "foreground": "var(purple)"
+        },
+
+        // ==| Variables |===================================================
+
+        {
+            "name":       "Variable",
+            "scope":      "variable",
+            "foreground": "#ff0"
+        },
+        {
+            "name":       "Variable indicator (ex. in php '$var_name')",
+            "scope":      "punctuation.definition.variable",
+            "foreground": "#6dd"
+        },
+        {
+            "name":       "Function arguments",
+            "scope":      "variable.parameter, parameters variable.function",
+            "foreground": "#fc9867"
+        },
+
+        // ==| Functions |===================================================
+
+        {
+            "name":       "Function name",
+            "scope":      "entity.name.function",
+            "foreground": "var(green)"
+        },
+        {
+            "name":       "Predefined function name (ex. Python '__init__' )",
+            "scope":      "support.function",
+            "foreground": "#66d9ef"
+        },
+        {
+            "name":       "Library class (ex. Go 'Error()')",
+            "scope":      "support.class",
+            "foreground": "var(blue)"
+        },
+        {
+            "name":       "Library class (ex. Javascript 'console.log()`)",
+            "scope":      "support.type",
+            "foreground": "#8ef"
+        },
+
+        // ==| Data Structures |=============================================
+
+        {
+            "name":       "Class name",
+            "scope":      "entity.name.class",
+            "foreground": "#a6e22e"
+        },
+        {
+            "name":       "Inherited class",
+            "scope":      "entity.other.inherited-class",
+            "foreground": "#A6E22E"
+        },
+
+        // ==| Language |====================================================
+
+        {
+            "name":       "Keyword",
+            "scope":      "keyword",
+            "foreground": "var(red)"
+        },
+        {
+            "name":       "Storage",
+            "scope":      "storage",
+            "foreground": "#8cfc"
+        },
+        {
+            "name":       "Types and definition / declaration keywords should use the following scope. Examples include int, bool, char, func, function, class and def. Depending on the language and semantics, const may be this or storage.modifier.",
+            "scope":      "storage.type",
+            "foreground": "#f88"
+        },
+        {
+            "name":       "Reserved variable names that are specified by the language, such as this, self, super, arguments. Also in function arguments (e.g. like in Python)",
+            "scope":      "variable.language, variable.parameter.function.language.special.self.python, variable.parameter.function.language.special.cls.python",
+            "foreground": "#bbb"
+        },
+
+        // ==| HTML |========================================================
+
+        {
+            "name":       "Tag name",
+            "scope":      "entity.name.tag, entity.name.tag.js.jsx support.class.component.js.jsx, entity.name.tag support.class.component, source.vue support.class.component",
+            "foreground": "var(red)"
+        },
+        {
+            "name":       "Entity name type",
+            "scope":      "entity.name.type, entity.name.type.class.reference, entity.name.type.class.value",
+            "foreground": "var(blue)"
+        },
+        {
+            "name":       "Tag attribute",
+            "scope":      "entity.other.attribute-name",
+            "foreground": "var(green)"
+        },
+        {
+            "name":       "Entity name",
+            "scope":      "entity.name",
+            "foreground": "var(green)"
+        },
+        {
+            "name":       "Italic",
+            "scope":      "markup.italic",
+            "font_style": "italic"
+        },
+        {
+            "name":       "Bold",
+            "scope":      "markup.bold",
+            "font_style": "bold"
+        },
+        {
+            "name":       "Heading",
+            "scope":      "markup.heading",
+            "foreground": "var(orange)"
+        },
+        {
+            "name":       "Raw",
+            "scope":      "markup.raw",
+            "foreground": "#fc9867"
+        },
+        {
+            "name":       "Underline",
+            "scope":      "markup.underline",
+            "font_style": "underline"
+        },
+        {
+            "name":       "Link",
+            "scope":      "markup.underline.link",
+            "foreground": "var(green)"
+        },
+        {
+            "name":       "Markup quote",
+            "scope":      "markup.quote",
+            "font_style": "italic"
+        },
+        {
+            "name":       "Class string name (i.e. in html attributes)",
+            "scope":      "meta.attribute-with-value.class string, meta.attribute.class.html string",
+            "foreground": "rebeccapurple"
+        },
+        {
+            "name":       "ID string name (i.e. in html attributes)",
+            "scope":      "meta.attribute-with-value.id string, meta.attribute.id.html string",
+            "foreground": "#fc9867"
+        },
+
+        // ==| CSS and/or Preprocessors |====================================
+
+        {
+            "name":       "Constant as color",
+            "scope":      "constant.other.color",
+            "foreground": "var(purple)"
+        },
+        {
+            "name":       "CSS class",
+            "scope":      "entity.other.attribute-name.class.css, entity.other.attribute-name.parent-selector-suffix.css, entity.other.attribute-name.parent-selector-suffix.css punctuation.definition.entity.css, entity.other.attribute-name.css, entity.other.animation-name.css, entity.other.attribute-name.id.css",
+            "foreground": "var(green)"
+        },
+        {
+            "name":       "CSS pseudo class",
+            "scope":      "entity.other.attribute-name.pseudo-class.css, entity.other.pseudo-class.css, entity.other.pseudo-element.css",
+            "foreground": "var(blue)"
+        },
+        {
+            "name":       "Variable indicator",
+            "scope":      "punctuation.definition.entity.css",
+            "foreground": "#c1c0c0"
+        },
+        {
+            "name":       "Property names",
+            "scope":      "support.type.property-name.css",
+            "foreground": "var(blue)"
+        },
+        {
+            "name":       "Vendor prefix",
+            "scope":      "support.type.vendor-prefix.css",
+            "foreground": "#a1a0a0"
+        },
+        {
+            "name":       "'at rule' token",
+            "scope":      "meta.at-rule keyword.control.directive.css",
+            "foreground": "#f4f"
+        },
+        {
+            "name":       "Punctuation tags",
+            "scope":      "punctuation.definition.tag, punctuation.definition.tag source, punctuation.definition.group.begin.css, punctuation.definition.group.end.css, punctuation.definition.string.end.html source.css",
+            "foreground": "#939293"
+        },
+
+        // ==| Go |==========================================================
+
+        {
+            "name":       "Storage type",
+            "scope":      "storage.type.go",
+            "foreground": "var(blue)"
+        },
+    ]
+}
